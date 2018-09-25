@@ -47,8 +47,7 @@ class ProyectosHistoricoTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->belongsTo('Clientes', [
-            'foreignKey' => 'cliente_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'cliente_id'
         ]);
     }
 
@@ -77,13 +76,11 @@ class ProyectosHistoricoTable extends Table
 
         $validator
             ->dateTime('fecha_inicio')
-            ->requirePresence('fecha_inicio', 'create')
-            ->notEmpty('fecha_inicio');
+            ->allowEmpty('fecha_inicio');
 
         $validator
             ->dateTime('fecha_vencimiento')
-            ->requirePresence('fecha_vencimiento', 'create')
-            ->notEmpty('fecha_vencimiento');
+            ->allowEmpty('fecha_vencimiento');
 
         return $validator;
     }

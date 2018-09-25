@@ -16,13 +16,7 @@ class CatGruposControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.cat_grupos',
-        'app.cat_menus',
-        'app.cat_permisos',
-        'app.users',
-        'app.cat_grupos_cat_menus',
-        'app.cat_grupos_cat_permisos',
-        'app.cat_grupos_users'
+        'app.cat_grupos'
     ];
 
     /**

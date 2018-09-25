@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * ProyectoCpanel Entity
  *
  * @property string $id
- * @property string $proyecto_id
+ * @property string $proyeto_id
  * @property string $usuario_cpanel
  * @property string $contrasenia_cpanel
  * @property bool $activo
@@ -29,7 +29,7 @@ class ProyectoCpanel extends Entity
      * @var array
      */
     protected $_accessible = [
-        'proyecto_id' => true,
+        'proyeto_id' => true,
         'usuario_cpanel' => true,
         'contrasenia_cpanel' => true,
         'activo' => true,

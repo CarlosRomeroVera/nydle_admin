@@ -13,7 +13,7 @@
           <thead>
               <tr>
                                   <th><?php echo ('id') ?></th>
-                                    <th><?php echo ('proyecto_id') ?></th>
+                                    <th><?php echo ('proyeto_id') ?></th>
                                     <th><?php echo ('usuario') ?></th>
                                     <th><?php echo ('contrasenia') ?></th>
                                     <th><?php echo ('activo') ?></th>
@@ -26,8 +26,8 @@
               <?php foreach ($proyectoCorreos as $proyectoCorreo): ?>
               <tr>
                                   <td><?php echo h($proyectoCorreo->id) ?></td>
-                    <td><?php echo $proyectoCorreo->has('proyecto') ? $this->Html->link($proyectoCorreo->proyecto->name, ['controller' => 'Proyectos', 'action' => 'view', $proyectoCorreo->proyecto->id]) : '' ?></td>
-                                              <td><?php echo h($proyectoCorreo->usuario) ?></td>
+                    <td><?php echo h($proyectoCorreo->proyeto_id) ?></td>
+                    <td><?php echo h($proyectoCorreo->usuario) ?></td>
                     <td><?php echo h($proyectoCorreo->contrasenia) ?></td>
                     <td><?php echo $proyectoCorreo->activo ? '<span class="label label-success">SI</span>':'<span class="label label-danger">NO</span>'; ?></td>
                     <td><?php echo h($proyectoCorreo->created) ?></td>

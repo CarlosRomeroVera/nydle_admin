@@ -25,17 +25,31 @@
       <dl class="row mt-3">
                                 <dt class="offset-2 col-sm-4"><?= __('Id') ?></dt>
         <dd class="col-sm-4"><?= h($user->id) ?></dd>
-                                <dt class="offset-2 col-sm-4"><?= __('Name') ?></dt>
-        <dd class="col-sm-4"><?= h($user->name) ?></dd>
+                                <dt class="offset-2 col-sm-4"><?= __('Nombre') ?></dt>
+        <dd class="col-sm-4"><?= h($user->nombre) ?></dd>
+                                <dt class="offset-2 col-sm-4"><?= __('Paterno') ?></dt>
+        <dd class="col-sm-4"><?= h($user->paterno) ?></dd>
+                                <dt class="offset-2 col-sm-4"><?= __('Materno') ?></dt>
+        <dd class="col-sm-4"><?= h($user->materno) ?></dd>
                                 <dt class="offset-2 col-sm-4"><?= __('Username') ?></dt>
         <dd class="col-sm-4"><?= h($user->username) ?></dd>
                                 <dt class="offset-2 col-sm-4"><?= __('Password') ?></dt>
         <dd class="col-sm-4"><?= h($user->password) ?></dd>
-                                                                <dt class="offset-2 col-sm-4"><?= __('Created') ?></dt>
+                                <dt class="offset-2 col-sm-4"><?= __('Grupo Id') ?></dt>
+        <dd class="col-sm-4"><?= h($user->grupo_id) ?></dd>
+                                <dt class="offset-2 col-sm-4"><?= __('Correo') ?></dt>
+        <dd class="col-sm-4"><?= h($user->correo) ?></dd>
+                                <dt class="offset-2 col-sm-4"><?= __('Telefono') ?></dt>
+        <dd class="col-sm-4"><?= h($user->telefono) ?></dd>
+                                                                <dt class="offset-2 col-sm-4"><?= __('Ultimo Acceso') ?></dt>
+        <dd class="col-sm-4"><?= h($user->ultimo_acceso) ?__($user->ultimo_acceso->format('d-m-Y h:i:s')) : __('<span class="label label-danger">SIN ACCESO</span>');  ?></dd>
+                <dt class="offset-2 col-sm-4"><?= __('Created') ?></dt>
         <dd class="col-sm-4"><?= h($user->created) ?__($user->created->format('d-m-Y h:i:s')) : __('<span class="label label-danger">SIN ACCESO</span>');  ?></dd>
                 <dt class="offset-2 col-sm-4"><?= __('Modified') ?></dt>
         <dd class="col-sm-4"><?= h($user->modified) ?__($user->modified->format('d-m-Y h:i:s')) : __('<span class="label label-danger">SIN ACCESO</span>');  ?></dd>
-                              </dl>
+                                        <dt class="offset-2 col-sm-4"><?= __('Activo') ?></dt>
+        <dd class="col-sm-4"><?= $user->activo ? __('<span class="label label-success">SI</span>') : __('<span class="label label-danger">NO</span>'); ?></dd>
+                      </dl>
           </div>
   </div>
 </div>

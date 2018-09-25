@@ -44,9 +44,9 @@ $this->loadHelper('Form', ['templates' => 'app_form']);
     	                		<?php echo $this->Form->control('proyecto_original_id', ['empty'=>true,'options' => $proyectos,'label'=>['']]);?>
     	                		<?php echo $this->Form->control('name', ['label'=>[]]); ?>
     	                		<?php echo $this->Form->control('observaciones', ['label'=>[]]); ?>
-    	                		<?php echo $this->Form->control('cliente_id', ['empty'=>true,'options' => $clientes,'label'=>['']]);?>
-    	                		<?php echo $this->Form->control('fecha_inicio', ['label'=>[]]); ?>
-    	                		<?php echo $this->Form->control('fecha_vencimiento', ['label'=>[]]); ?>
+    	                		<?php echo $this->Form->control('cliente_id', ['options' => $clientes, 'empty' => true,'label'=>['']]); ?>
+    	                		<?php echo $this->Form->control('fecha_inicio', ['empty' => true,'label'=>['']]); ?>
+    	                		<?php echo $this->Form->control('fecha_vencimiento', ['empty' => true,'label'=>['']]); ?>
     	    			</fieldset>
           <div class="form-group">
             <div class="offset-2 col-sm-10 mt-3">

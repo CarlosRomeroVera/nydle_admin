@@ -16,9 +16,7 @@ class CatPermisosControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.cat_permisos',
-        'app.cat_grupos',
-        'app.cat_grupos_cat_permisos'
+        'app.cat_permisos'
     ];
 
     /**

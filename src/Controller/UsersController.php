@@ -129,27 +129,4 @@ class UsersController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
-
-    public function login(){
-      $this->viewBuilder()->layout('login');
-      if ($this->request->is('post')) {
-          return $this->redirect([
-                'controller' => 'Clientes',
-                'action' => 'index',
-                'home'
-            ]);
-          $user = $this->Auth->identify();
-          // print($user);
-          if ($user) {
-            $this->Auth->setUser($user);
-            $session = $this->request->session();
-            $session->write([
-                            'User.id' => $user['id'],
-                          ]);
-            return $this->redirect($this->Auth->redirectUrl());
-          }else{
-            $this->Flash->error(__('Nombre de usuario o contraseña incorrectos'));
-          }
-      }
-    }
 }

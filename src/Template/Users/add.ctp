@@ -41,9 +41,16 @@ $this->loadHelper('Form', ['templates' => 'app_form']);
 
     			<?php echo  $this->Form->create($user,['role'=>'form','onsubmit'=>'return checkSubmit();','class'=>'form-horizontal']) ?>
     			<fieldset>    			    
-    	                		<?php echo $this->Form->control('name', ['label'=>[]]); ?>
+    	                		<?php echo $this->Form->control('nombre', ['label'=>[]]); ?>
+    	                		<?php echo $this->Form->control('paterno', ['label'=>[]]); ?>
+    	                		<?php echo $this->Form->control('materno', ['label'=>[]]); ?>
     	                		<?php echo $this->Form->control('username', ['label'=>[]]); ?>
     	                		<?php echo $this->Form->control('password', ['label'=>[]]); ?>
+    	                		<?php echo $this->Form->control('grupo_id', ['label'=>[]]); ?>
+    	                		<?php echo $this->Form->control('ultimo_acceso', ['empty' => true,'label'=>['']]); ?>
+    	                		<?php echo $this->Form->control('correo', ['label'=>[]]); ?>
+    	                		<?php echo $this->Form->control('telefono', ['label'=>[]]); ?>
+    	                		<?php echo $this->Form->control('activo', ['label'=>[]]); ?>
     	    			</fieldset>
           <div class="form-group">
             <div class="offset-2 col-sm-10 mt-3">

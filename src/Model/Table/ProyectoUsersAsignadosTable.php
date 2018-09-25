@@ -66,7 +66,8 @@ class ProyectoUsersAsignadosTable extends Table
 
         $validator
             ->boolean('activo')
-            ->allowEmpty('activo');
+            ->requirePresence('activo', 'create')
+            ->notEmpty('activo');
 
         return $validator;
     }

@@ -24,10 +24,7 @@ class CatGruposTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.cat_grupos',
-        'app.cat_menus',
-        'app.cat_permisos',
-        'app.users'
+        'app.cat_grupos'
     ];
 
     /**

@@ -25,8 +25,8 @@
       <dl class="row mt-3">
                                 <dt class="offset-2 col-sm-4"><?= __('Id') ?></dt>
         <dd class="col-sm-4"><?= h($proyectoCpanel->id) ?></dd>
-                                <dt class="offset-2 col-sm-4"><?= __('Proyecto') ?></dt>
-        <dd class="col-sm-4"><?= $proyectoCpanel->has('proyecto') ? $this->Html->link($proyectoCpanel->proyecto->name, ['controller' => 'Proyectos', 'action' => 'view', $proyectoCpanel->proyecto->id]) : '' ?></dd>
+                                <dt class="offset-2 col-sm-4"><?= __('Proyeto Id') ?></dt>
+        <dd class="col-sm-4"><?= h($proyectoCpanel->proyeto_id) ?></dd>
                                 <dt class="offset-2 col-sm-4"><?= __('Usuario Cpanel') ?></dt>
         <dd class="col-sm-4"><?= h($proyectoCpanel->usuario_cpanel) ?></dd>
                                 <dt class="offset-2 col-sm-4"><?= __('Contrasenia Cpanel') ?></dt>

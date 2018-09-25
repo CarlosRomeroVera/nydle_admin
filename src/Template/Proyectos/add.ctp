@@ -45,7 +45,7 @@ $this->loadHelper('Form', ['templates' => 'app_form']);
     	                		<?php echo $this->Form->control('cliente_id', ['empty'=>true,'options' => $clientes,'label'=>['']]);?>
     	                		<?php echo $this->Form->control('observaciones', ['label'=>[]]); ?>
     	                		<?php echo $this->Form->control('fecha_inicio', ['label'=>[]]); ?>
-    	                		<?php echo $this->Form->control('fecha_vencimiento', ['label'=>[]]); ?>
+    	                		<?php echo $this->Form->control('fecha_vencimiento', ['empty' => true,'label'=>['']]); ?>
     	                		<?php echo $this->Form->control('activo', ['label'=>[]]); ?>
     	                		<?php echo $this->Form->control('renovado', ['label'=>[]]); ?>
     	    			</fieldset>

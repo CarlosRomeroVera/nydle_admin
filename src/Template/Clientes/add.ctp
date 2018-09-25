@@ -18,7 +18,7 @@ function checkSubmit()
 <?php
 $this->loadHelper('Form', ['templates' => 'app_form']);
 ?>
-<div class="container-fluid" style="padding: 20px;">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-3">
     		<div class="card">

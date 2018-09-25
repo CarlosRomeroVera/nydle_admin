@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * ProyectoCorreo Entity
  *
  * @property string $id
- * @property string $proyecto_id
+ * @property string $proyeto_id
  * @property string $usuario
  * @property string $contrasenia
  * @property bool $activo
@@ -29,7 +29,7 @@ class ProyectoCorreo extends Entity
      * @var array
      */
     protected $_accessible = [
-        'proyecto_id' => true,
+        'proyeto_id' => true,
         'usuario' => true,
         'contrasenia' => true,
         'activo' => true,

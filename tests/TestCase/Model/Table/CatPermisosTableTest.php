@@ -24,8 +24,7 @@ class CatPermisosTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.cat_permisos',
-        'app.cat_grupos'
+        'app.cat_permisos'
     ];
 
     /**

@@ -44,7 +44,7 @@ $this->loadHelper('Form', ['templates' => 'app_form']);
 
     			<?php echo  $this->Form->create($proyectoCorreo,['role'=>'form','onsubmit'=>'return checkSubmit();','class'=>'form-horizontal']) ?>
     			<fieldset>    			    
-    	                		<?php echo $this->Form->control('proyecto_id', ['empty'=>true,'options' => $proyectos,'label'=>['']]);?>
+    	                		<?php echo $this->Form->control('proyeto_id', ['label'=>[]]); ?>
     	                		<?php echo $this->Form->control('usuario', ['label'=>[]]); ?>
     	                		<?php echo $this->Form->control('contrasenia', ['label'=>[]]); ?>
     	                		<?php echo $this->Form->control('activo', ['label'=>[]]); ?>

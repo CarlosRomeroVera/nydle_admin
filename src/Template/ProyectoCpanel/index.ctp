@@ -13,7 +13,7 @@
           <thead>
               <tr>
                                   <th><?php echo ('id') ?></th>
-                                    <th><?php echo ('proyecto_id') ?></th>
+                                    <th><?php echo ('proyeto_id') ?></th>
                                     <th><?php echo ('usuario_cpanel') ?></th>
                                     <th><?php echo ('contrasenia_cpanel') ?></th>
                                     <th><?php echo ('activo') ?></th>
@@ -26,8 +26,8 @@
               <?php foreach ($proyectoCpanel as $proyectoCpanel): ?>
               <tr>
                                   <td><?php echo h($proyectoCpanel->id) ?></td>
-                    <td><?php echo $proyectoCpanel->has('proyecto') ? $this->Html->link($proyectoCpanel->proyecto->name, ['controller' => 'Proyectos', 'action' => 'view', $proyectoCpanel->proyecto->id]) : '' ?></td>
-                                              <td><?php echo h($proyectoCpanel->usuario_cpanel) ?></td>
+                    <td><?php echo h($proyectoCpanel->proyeto_id) ?></td>
+                    <td><?php echo h($proyectoCpanel->usuario_cpanel) ?></td>
                     <td><?php echo h($proyectoCpanel->contrasenia_cpanel) ?></td>
                     <td><?php echo $proyectoCpanel->activo ? '<span class="label label-success">SI</span>':'<span class="label label-danger">NO</span>'; ?></td>
                     <td><?php echo h($proyectoCpanel->created) ?></td>

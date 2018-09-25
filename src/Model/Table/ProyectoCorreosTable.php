@@ -42,7 +42,7 @@ class ProyectoCorreosTable extends Table
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Proyectos', [
-            'foreignKey' => 'proyecto_id',
+            'foreignKey' => 'proyeto_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -73,7 +73,8 @@ class ProyectoCorreosTable extends Table
 
         $validator
             ->boolean('activo')
-            ->allowEmpty('activo');
+            ->requirePresence('activo', 'create')
+            ->notEmpty('activo');
 
         return $validator;
     }
@@ -87,7 +88,7 @@ class ProyectoCorreosTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['proyecto_id'], 'Proyectos'));
+        $rules->add($rules->existsIn(['proyeto_id'], 'Proyectos'));
 
         return $rules;
     }

@@ -9,6 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
+ * @property |\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\ProyectoUsersAsignadosTable|\Cake\ORM\Association\HasMany $ProyectoUsersAsignados
  *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
@@ -41,6 +42,10 @@ class UsersTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        $this->belongsTo('Users', [
+            'foreignKey' => 'grupo_id',
+            'joinType' => 'INNER'
+        ]);
         $this->hasMany('ProyectoUsersAsignados', [
             'foreignKey' => 'user_id'
         ]);
@@ -59,20 +64,55 @@ class UsersTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('name')
-            ->maxLength('name', 200)
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->scalar('nombre')
+            ->maxLength('nombre', 200)
+            ->requirePresence('nombre', 'create')
+            ->notEmpty('nombre');
+
+        $validator
+            ->scalar('paterno')
+            ->maxLength('paterno', 200)
+            ->requirePresence('paterno', 'create')
+            ->notEmpty('paterno');
+
+        $validator
+            ->scalar('materno')
+            ->maxLength('materno', 200)
+            ->requirePresence('materno', 'create')
+            ->notEmpty('materno');
 
         $validator
             ->scalar('username')
-            ->maxLength('username', 45)
-            ->allowEmpty('username');
+            ->maxLength('username', 50)
+            ->requirePresence('username', 'create')
+            ->notEmpty('username');
 
         $validator
             ->scalar('password')
             ->maxLength('password', 256)
-            ->allowEmpty('password');
+            ->requirePresence('password', 'create')
+            ->notEmpty('password');
+
+        $validator
+            ->dateTime('ultimo_acceso')
+            ->allowEmpty('ultimo_acceso');
+
+        $validator
+            ->scalar('correo')
+            ->maxLength('correo', 100)
+            ->requirePresence('correo', 'create')
+            ->notEmpty('correo');
+
+        $validator
+            ->scalar('telefono')
+            ->maxLength('telefono', 100)
+            ->requirePresence('telefono', 'create')
+            ->notEmpty('telefono');
+
+        $validator
+            ->boolean('activo')
+            ->requirePresence('activo', 'create')
+            ->notEmpty('activo');
 
         return $validator;
     }
@@ -87,6 +127,7 @@ class UsersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['username']));
+        $rules->add($rules->existsIn(['grupo_id'], 'Users'));
 
         return $rules;
     }

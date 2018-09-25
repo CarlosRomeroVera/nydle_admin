@@ -25,8 +25,8 @@
       <dl class="row mt-3">
                                 <dt class="offset-2 col-sm-4"><?= __('Id') ?></dt>
         <dd class="col-sm-4"><?= h($proyectoCorreo->id) ?></dd>
-                                <dt class="offset-2 col-sm-4"><?= __('Proyecto') ?></dt>
-        <dd class="col-sm-4"><?= $proyectoCorreo->has('proyecto') ? $this->Html->link($proyectoCorreo->proyecto->name, ['controller' => 'Proyectos', 'action' => 'view', $proyectoCorreo->proyecto->id]) : '' ?></dd>
+                                <dt class="offset-2 col-sm-4"><?= __('Proyeto Id') ?></dt>
+        <dd class="col-sm-4"><?= h($proyectoCorreo->proyeto_id) ?></dd>
                                 <dt class="offset-2 col-sm-4"><?= __('Usuario') ?></dt>
         <dd class="col-sm-4"><?= h($proyectoCorreo->usuario) ?></dd>
                                 <dt class="offset-2 col-sm-4"><?= __('Contrasenia') ?></dt>
