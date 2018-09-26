@@ -34,7 +34,7 @@ class CatGruposTable extends Table
         parent::initialize($config);
 
         $this->setTable('cat_grupos');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nombre');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');

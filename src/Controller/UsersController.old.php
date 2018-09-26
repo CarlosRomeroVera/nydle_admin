@@ -18,7 +18,7 @@ class UsersController extends AppController
       public function initialize()
            {
                parent::initialize();
-               $title_for_layout = 'Users';
+               $title_for_layout = 'Usuariossss';
                $this->set(compact('title_for_layout'));
            }
     /**
@@ -47,34 +47,6 @@ class UsersController extends AppController
         $this->set(compact('users'));
         $this->set('_serialize', ['users']);
     }
-
-    public function login(){
-      $this->viewBuilder()->layout('login');
-      if ($this->request->is('post')) {
-          $user = $this->Auth->identify();
-          if ($user) {
-            if ($user['activo']){
-              $this->Auth->setUser($user);
-              $session = $this->request->session();
-              $session->write([
-                'User.id' => $user['id'],
-              ]);
-              return $this->redirect($this->Auth->redirectUrl());
-            }else{
-                $this->Flash->error(__('Opss!Tu Usuario ha sido desactivado.'));
-            }
-          }else{
-            $this->Flash->error(__('Nombre de usuario o contraseña incorrectos'));
-          }
-      }
-    }
-
-    public function logout()
-        {
-          $session = $this->request->getSession();
-          $session->destroy();
-          return $this->redirect($this->Auth->logout());
-        }
 
     /**
      * View method
@@ -110,8 +82,7 @@ class UsersController extends AppController
                 $this->Flash->error(__('El registro no pudo ser guardado. Por favor, intentelo nuevamente.'),['params'=>['class'=>'alert alert-danger']]);
             }
         }
-        $catGrupos = $this->Users->CatGrupos->find('list', ['limit' => 200]);
-        $this->set(compact('user','catGrupos'));
+        $this->set(compact('user'));
         $this->set('_serialize', ['user']);
     }
 
@@ -136,8 +107,7 @@ class UsersController extends AppController
                 $this->Flash->error(__('El registro no pudo ser actualizado. Por favor, intentelo nuevamente.'),['params'=>['class'=>'alert alert-danger']]);
             }
         }
-        $catGrupos = $this->Users->CatGrupos->find('list', ['limit' => 200]);
-        $this->set(compact('user','catGrupos'));
+        $this->set(compact('user'));
         $this->set('_serialize', ['user']);
     }
 
@@ -158,5 +128,28 @@ class UsersController extends AppController
             $this->Flash->error(__('El registro no pudo ser eliminado. Por favor, intentelo nuevamente.'),['params'=>['class'=>'alert alert-danger']]);
         }
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function login(){
+      $this->viewBuilder()->layout('login');
+      if ($this->request->is('post')) {
+          return $this->redirect([
+                'controller' => 'Clientes',
+                'action' => 'index',
+                'home'
+            ]);
+          $user = $this->Auth->identify();
+          // print($user);
+          if ($user) {
+            $this->Auth->setUser($user);
+            $session = $this->request->session();
+            $session->write([
+                            'User.id' => $user['id'],
+                          ]);
+            return $this->redirect($this->Auth->redirectUrl());
+          }else{
+            $this->Flash->error(__('Nombre de usuario o contraseña incorrectos'));
+          }
+      }
     }
 }

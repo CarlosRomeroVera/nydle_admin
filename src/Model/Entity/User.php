@@ -2,6 +2,7 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\Auth\DefaultPasswordHasher;
 
 /**
  * User Entity
@@ -55,7 +56,22 @@ class User extends Entity
      *
      * @var array
      */
+    protected $_virtual = ['nombre_completo'];
     protected $_hidden = [
         'password'
     ];
+
+    protected function _setPassword($value)
+   {
+       if (strlen($value)) {
+           $hasher = new DefaultPasswordHasher();
+           return $hasher->hash($value);
+       }
+   }
+
+   protected function _getNombreCompleto()
+   {
+       $nombre_completo =$this->_properties['nombre']." ".$this->_properties['paterno']." ".$this->_properties['materno'];
+       return $nombre_completo;     
+   }
 }

@@ -41,7 +41,9 @@ class UsersTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
-
+        $this->belongsTo('CatGrupos', [
+            'foreignKey' => 'grupo_id'
+        ]);
         $this->belongsTo('Users', [
             'foreignKey' => 'grupo_id',
             'joinType' => 'INNER'
@@ -127,7 +129,7 @@ class UsersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['username']));
-        $rules->add($rules->existsIn(['grupo_id'], 'Users'));
+        $rules->add($rules->existsIn(['grupo_id'], 'CatGrupos'));
 
         return $rules;
     }

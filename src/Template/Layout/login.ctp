@@ -60,8 +60,7 @@
         </div>
       </div>
       <div class="copyrights text-center">
-        <p>Derechos reservados <a href="https://sm2consultores.com/" class="external">nydle code</a>
-          <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+        <p style="background-color:#FF7F00;">Derechos reservados <a href="https://nydlecode.com" class="external">nydle code</a>
         </p>
       </div>
     </div>

@@ -45,19 +45,25 @@ class AppController extends Controller
             'enableBeforeRedirect' => false,
         ]);
         $this->loadComponent('Flash');
-        // $this->loadComponent('Auth', [
-        //   'authError' =>'Error',
-        //     'authorize' => ['Controller'],
-        //     'loginRedirect' => [
-        //         'controller' => 'Clientes',
-        //         'action' => 'index'
-        //     ],
-        //     'logoutRedirect' => [
-        //         'controller' => 'Users',
-        //         'action' => 'login',
-        //         'home'
-        //     ]
-        // ]);
+        $this->loadComponent('Auth', [
+          'authorize'=> 'Controller',
+          'loginAction' => [
+              'controller' => 'Users',
+              'action' => 'login'
+          ],
+          'authError' =>'Nombre de usuario o Contraseña incorrecta',
+            'authorize' => ['Controller'],
+            'loginRedirect' => [
+                'controller' => 'Clientes',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Users',
+                'action' => 'login',
+                'home'
+            ],
+            'unauthorizedRedirect' => $this->referer()
+        ]);
         /*
          * Enable the following component for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -66,6 +72,50 @@ class AppController extends Controller
     }
 
     public function isAuthorized(){
+      // return $this->__permitted($this->name,$this->request->getParam('action'));
       return true;
     }
+
+    public function __permitted($controller,$action){
+          $session = $this->getRequest()->getSession();
+          $this->loadModel('VPermisosGrupos');//permisos por grupo
+          //Convertimos a minisculas tanto el nombre del controlador como la accion llamada
+          $controllerName = strtolower($controller);
+          $actionName = strtolower($action);
+          //Asignamos los permisos por default para todo los usuarios
+          $PermisosDefault = ['Inicio:*','users:logout','users:login','users:cambiarpassword'];
+          if (!$this->getRequest()->getSession()->check('permisosApp')) {
+            $permisosAux = $this->VPermisosGrupos
+                                ->find('all')
+                                ->select(['VPermisosGrupos.id','VPermisosGrupos.permiso'])
+                                ->where(['co_grupo_id'=>$this->getRequest()->getSession()->read('Auth.User.CoGrupo.id')]);
+            $permiso=[];
+            foreach ($permisosAux as $key => $permisos) {
+              array_push($permiso,$permisos['permiso']);
+            }
+            $this->getRequest()->getSession()->write('permisosApp',$permiso);
+            $Permisos = array_merge($PermisosDefault,$permiso);
+          }else{
+            $Permisos = array_merge($PermisosDefault,$this->getRequest()->getSession()->read('permisosApp'));
+          }
+          foreach ($Permisos as $key => $permitido){
+            if ($permitido == '*:*' or $this->getRequest()->getSession()->read('Auth.User.CoGrupo.name') == 'SM2') {
+              return true;//todas las acciones permitidas
+            }
+            if ($permitido == $controllerName.':*') {
+              return true;//todas las acciones permitidas sobre el controlador
+            }
+            if ($permitido == $controllerName.':'.$actionName) {
+              return true;//permiso especifico
+            }
+          }
+          return false;
+        }
+        public function beforeFilter(Event $event)
+            {
+              if (!$this->Auth->user()){
+                $this->Auth->setconfig('authError', false);
+              }
+              $this->Auth->allow(['login']);
+            }
 }

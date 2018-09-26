@@ -154,7 +154,9 @@ $cakeDescription = 'nydle code';
                   </ul>
                 </li>
                 <!-- Logout    -->
-                <li class="nav-item text-danger"><a href="login.html" class="nav-link logout"> <span class="d-none d-sm-inline">Cerrar Sesión </span><i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item">                  
+                  <?php echo $this->Html->link('<span class="d-none d-sm-inline">Salir</span><i class="fa fa-sign-out"></i>', ['Controller'=>'Users','action' => 'logout'],['class'=>'nav-link logout','escape'=>false]) ?>
+                </li>
               </ul>
             </div>
           </div>
