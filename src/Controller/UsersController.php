@@ -55,10 +55,9 @@ class UsersController extends AppController
           if ($user) {
             if ($user['activo']){
               $this->Auth->setUser($user);
-              $session = $this->request->session();
-              $session->write([
-                'User.id' => $user['id'],
-              ]);
+              $usuario = $this->Users->get($user['id']);//se recupera la entidad del usuario
+              $usuario->ultimo_acceso = date('Y-m-d H:i:s');
+              $this->Users->save($usuario);
               return $this->redirect($this->Auth->redirectUrl());
             }else{
                 $this->Flash->error(__('Opss!Tu Usuario ha sido desactivado.'));
@@ -92,6 +91,24 @@ class UsersController extends AppController
         $this->set('user', $user);
         $this->set('_serialize', ['user']);
     }
+
+    public function cambiarPassword($id = null)
+          {
+              $id =   $this->getRequest()->getSession()->read('Auth.User.id');
+              $user = $this->Users->get($id, [
+                  'contain' => []
+              ]);
+              if ($this->request->is(['patch', 'post', 'put'])) {
+                  $user = $this->Users->patchEntity($user, $this->request->getData());
+                  if ($this->Users->save($user)){
+                    $this->Flash->success(__('La contraseña ha sido cambiada con éxito.'));
+                    return $this->redirect($this->Auth->redirectUrl());
+                  }
+                  $this->Flash->error(__('Ha ocurrido un error, por favor, intenta de nuevo.'));
+              }
+              $this->set(compact('user'));
+              $this->set('_serialize', ['user']);
+          }
 
     /**
      * Add method

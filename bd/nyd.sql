@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-09-2018 a las 01:32:23
+-- Tiempo de generación: 27-09-2018 a las 09:00:51
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -35,6 +35,15 @@ CREATE TABLE `cat_grupos` (
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `cat_grupos`
+--
+
+INSERT INTO `cat_grupos` (`id`, `nombre`, `activo`, `created`, `modified`) VALUES
+('26d122cd-64bb-442b-8d55-876f72f925cc', 'NYDLE', 1, '2018-09-26 05:55:16', '2018-09-26 05:55:16'),
+('debd79a4-0603-435b-bf80-20f8d856af18', 'ADMIN', 1, '2018-09-26 05:55:28', '2018-09-26 05:55:28'),
+('e592ecb7-33a0-48f9-8395-e18f341ff695', 'VISITANTE', 1, '2018-09-26 06:06:18', '2018-09-26 06:06:18');
 
 -- --------------------------------------------------------
 
@@ -256,6 +265,34 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `nombre`, `paterno`, `materno`, `username`, `password`, `grupo_id`, `ultimo_acceso`, `correo`, `telefono`, `activo`, `created`, `modified`) VALUES
+('ffa13dfa-9dc3-4f33-814a-b2e0ac2c8ee1', 'Cruz', 'Chulim', 'Bautista', 'achulim', '$2y$10$0PlpEDe7eDjD3ayxjTdAKutBj4O0/k44Fspp5NtwQGUol/LVXVFDi', '26d122cd-64bb-442b-8d55-876f72f925cc', NULL, 'chulimcruz@gmail.com', '9831039027', 1, '2018-09-26 06:16:59', '2018-09-27 06:56:29');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `v_grupos_permisos`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `v_grupos_permisos` (
+`id` char(36)
+,`permiso` varchar(401)
+,`co_grupo_id` char(36)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_grupos_permisos`
+--
+DROP TABLE IF EXISTS `v_grupos_permisos`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_grupos_permisos`  AS  (select `cat_permisos`.`id` AS `id`,concat(`cat_permisos`.`controlador`,':',`cat_permisos`.`accion`) AS `permiso`,`cat_grupos`.`id` AS `co_grupo_id` from ((`cat_grupos` join `r_permisos_grupos` on((`r_permisos_grupos`.`id_cat_grupo` = `cat_grupos`.`id`))) join `cat_permisos` on((`r_permisos_grupos`.`id_cat_permiso` = `cat_permisos`.`id`)))) ;
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -355,7 +392,7 @@ ALTER TABLE `r_permisos_grupos`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `grupo_id` (`grupo_id`);
+  ADD KEY `users_ibfk_1` (`grupo_id`);
 
 --
 -- Restricciones para tablas volcadas
@@ -423,7 +460,7 @@ ALTER TABLE `r_permisos_grupos`
 -- Filtros para la tabla `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`grupo_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`grupo_id`) REFERENCES `cat_grupos` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
