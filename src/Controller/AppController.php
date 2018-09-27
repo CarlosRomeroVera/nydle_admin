@@ -40,7 +40,7 @@ class AppController extends Controller
     public function initialize()
     {
         parent::initialize();
-
+        date_default_timezone_set("America/Bogota");
         $this->loadComponent('RequestHandler', [
             'enableBeforeRedirect' => false,
         ]);
@@ -71,7 +71,7 @@ class AppController extends Controller
         //$this->loadComponent('Security');
     }
 
-    public function isAuthorized(){      
+    public function isAuthorized(){
       return true;
     }
         public function beforeFilter(Event $event)

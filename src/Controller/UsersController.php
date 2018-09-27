@@ -54,10 +54,10 @@ class UsersController extends AppController
           $user = $this->Auth->identify();
           if ($user) {
             if ($user['activo']){
-              $this->Auth->setUser($user);
               $usuario = $this->Users->get($user['id']);//se recupera la entidad del usuario
               $usuario->ultimo_acceso = date('Y-m-d H:i:s');
               $this->Users->save($usuario);
+              $this->Auth->setUser($usuario);
               return $this->redirect($this->Auth->redirectUrl());
             }else{
                 $this->Flash->error(__('Opss!Tu Usuario ha sido desactivado.'));
