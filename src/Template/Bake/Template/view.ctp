@@ -104,13 +104,13 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
         <% if ($groupedFields['date']) : %>
         <% foreach ($groupedFields['date'] as $field) : %>
         <dt class="offset-2 col-sm-4"><%= "<%= __('" . Inflector::humanize($field) . "') %>" %></dt>
-        <dd class="col-sm-4"><?= h($<%= $singularVar %>-><%= $field %>) ?__($<%= $singularVar %>-><%= $field %>->format('d-m-Y h:i:s')) : __('<span class="label label-danger">SIN ACCESO</span>');  ?></dd>
+        <dd class="col-sm-4"><?= h($<%= $singularVar %>-><%= $field %>) ?__($<%= $singularVar %>-><%= $field %>->format('d-m-Y h:i:s')) : __('<span class="badge badge-danger">SIN ACCESO</span>');  ?></dd>
         <% endforeach; %>
         <% endif; %>
         <% if ($groupedFields['boolean']) : %>
         <% foreach ($groupedFields['boolean'] as $field) : %>
         <dt class="offset-2 col-sm-4"><?= __('<%= Inflector::humanize($field) %>') ?></dt>
-        <dd class="col-sm-4"><?= $<%= $singularVar %>-><%= $field %> ? __('<span class="label label-success">SI</span>') : __('<span class="label label-danger">NO</span>'); ?></dd>
+        <dd class="col-sm-4"><?= $<%= $singularVar %>-><%= $field %> ? __('<span class="badge badge-success">SI</span>') : __('<span class="badge badge-danger">NO</span>'); ?></dd>
         <% endforeach; %>
         <% endif; %>
       </dl>

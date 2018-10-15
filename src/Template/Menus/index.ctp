@@ -35,7 +35,7 @@
                     <td><?php echo h($menu->action) ?></td>
                     <td><?php echo h($menu->icon) ?></td>
                     <td><?php echo $this->Number->format($menu->orden) ?></td>
-                    <td><?php echo $menu->activo ? '<span class="label label-success">SI</span>':'<span class="label label-danger">NO</span>'; ?></td>
+                    <td><?php echo $menu->activo ? '<span class="badge badge-success">SI</span>':'<span class="badge badge-danger">NO</span>'; ?></td>
                     <td><?php echo h($menu->created) ?></td>
                     <td><?php echo h($menu->modified) ?></td>
                 <td><?php echo $menu->acciones?></td>

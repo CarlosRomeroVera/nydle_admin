@@ -27,7 +27,7 @@
                                   <td><?php echo h($rMenusGrupo->id) ?></td>
                     <td><?php echo h($rMenusGrupo->id_menu) ?></td>
                     <td><?php echo h($rMenusGrupo->id_grupo) ?></td>
-                    <td><?php echo $rMenusGrupo->activo ? '<span class="label label-success">SI</span>':'<span class="label label-danger">NO</span>'; ?></td>
+                    <td><?php echo $rMenusGrupo->activo ? '<span class="badge badge-success">SI</span>':'<span class="badge badge-danger">NO</span>'; ?></td>
                     <td><?php echo h($rMenusGrupo->created) ?></td>
                     <td><?php echo h($rMenusGrupo->modified) ?></td>
                 <td><?php echo $rMenusGrupo->acciones?></td>

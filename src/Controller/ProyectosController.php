@@ -74,7 +74,14 @@ class ProyectosController extends AppController
     {
         $proyecto = $this->Proyectos->newEntity();
         if ($this->request->is('post')) {
-            $proyecto = $this->Proyectos->patchEntity($proyecto, $this->request->getData());
+            $data = $this->request->getData();
+            $data['fecha_inicio'] = date('Y-m-d h:i:s',strtotime($data['fecha_inicio']));
+            if ($data['fecha_vencimiento']) {
+              $data['fecha_vencimiento'] = date('Y-m-d h:i:s',strtotime($data['fecha_vencimiento']));
+            }else{
+              $data['fecha_vencimiento'] = NULL;
+            }
+            $proyecto = $this->Proyectos->patchEntity($proyecto, $data);
             if ($this->Proyectos->save($proyecto)) {
                 $this->Flash->success(__('El registro fue guardado satisfactoriamente.'),['params'=>['class'=>'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);
@@ -99,8 +106,17 @@ class ProyectosController extends AppController
         $proyecto = $this->Proyectos->get($id, [
             'contain' => []
         ]);
+        $proyecto->fecha_inicio = date('Y-m-d',strtotime($proyecto->fecha_inicio));
+        $proyecto->fecha_vencimiento = date('Y-m-d',strtotime($proyecto->fecha_vencimiento));
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $proyecto = $this->Proyectos->patchEntity($proyecto, $this->request->getData());
+          $data = $this->request->getData();
+          $data['fecha_inicio'] = date('Y-m-d h:i:s',strtotime($data['fecha_inicio']));
+          if ($data['fecha_vencimiento']) {
+            $data['fecha_vencimiento'] = date('Y-m-d h:i:s',strtotime($data['fecha_vencimiento']));
+          }else{
+            $data['fecha_vencimiento'] = NULL;
+          }
+          $proyecto = $this->Proyectos->patchEntity($proyecto, $data);
             if ($this->Proyectos->save($proyecto)) {
                 $this->Flash->success(__('El registro se actualizo satisfactoriamente'),['params'=>['class'=>'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);

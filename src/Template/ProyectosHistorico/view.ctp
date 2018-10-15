@@ -32,13 +32,13 @@
                                 <dt class="offset-2 col-sm-4"><?= __('Cliente') ?></dt>
         <dd class="col-sm-4"><?= $proyectosHistorico->has('cliente') ? $this->Html->link($proyectosHistorico->cliente->name, ['controller' => 'Clientes', 'action' => 'view', $proyectosHistorico->cliente->id]) : '' ?></dd>
                                                                 <dt class="offset-2 col-sm-4"><?= __('Fecha Inicio') ?></dt>
-        <dd class="col-sm-4"><?= h($proyectosHistorico->fecha_inicio) ?__($proyectosHistorico->fecha_inicio->format('d-m-Y h:i:s')) : __('<span class="label label-danger">SIN ACCESO</span>');  ?></dd>
+        <dd class="col-sm-4"><?= h($proyectosHistorico->fecha_inicio) ?__($proyectosHistorico->fecha_inicio->format('d-m-Y h:i:s')) : __('<span class="badge badge-danger">SIN ACCESO</span>');  ?></dd>
                 <dt class="offset-2 col-sm-4"><?= __('Fecha Vencimiento') ?></dt>
-        <dd class="col-sm-4"><?= h($proyectosHistorico->fecha_vencimiento) ?__($proyectosHistorico->fecha_vencimiento->format('d-m-Y h:i:s')) : __('<span class="label label-danger">SIN ACCESO</span>');  ?></dd>
+        <dd class="col-sm-4"><?= h($proyectosHistorico->fecha_vencimiento) ?__($proyectosHistorico->fecha_vencimiento->format('d-m-Y h:i:s')) : __('<span class="badge badge-danger">SIN ACCESO</span>');  ?></dd>
                 <dt class="offset-2 col-sm-4"><?= __('Created') ?></dt>
-        <dd class="col-sm-4"><?= h($proyectosHistorico->created) ?__($proyectosHistorico->created->format('d-m-Y h:i:s')) : __('<span class="label label-danger">SIN ACCESO</span>');  ?></dd>
+        <dd class="col-sm-4"><?= h($proyectosHistorico->created) ?__($proyectosHistorico->created->format('d-m-Y h:i:s')) : __('<span class="badge badge-danger">SIN ACCESO</span>');  ?></dd>
                 <dt class="offset-2 col-sm-4"><?= __('Modified') ?></dt>
-        <dd class="col-sm-4"><?= h($proyectosHistorico->modified) ?__($proyectosHistorico->modified->format('d-m-Y h:i:s')) : __('<span class="label label-danger">SIN ACCESO</span>');  ?></dd>
+        <dd class="col-sm-4"><?= h($proyectosHistorico->modified) ?__($proyectosHistorico->modified->format('d-m-Y h:i:s')) : __('<span class="badge badge-danger">SIN ACCESO</span>');  ?></dd>
                               </dl>
                   <div class="row">
         <h4><?= __('Observaciones') ?></h4>

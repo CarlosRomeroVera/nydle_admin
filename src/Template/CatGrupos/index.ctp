@@ -25,7 +25,7 @@
               <tr>
                                   <td><?php echo h($catGrupo->id) ?></td>
                     <td><?php echo h($catGrupo->nombre) ?></td>
-                    <td><?php echo $catGrupo->activo ? '<span class="label label-success">SI</span>':'<span class="label label-danger">NO</span>'; ?></td>
+                    <td><?php echo $catGrupo->activo ? '<span class="badge badge-success">SI</span>':'<span class="badge badge-danger">NO</span>'; ?></td>
                     <td><?php echo h($catGrupo->created) ?></td>
                     <td><?php echo h($catGrupo->modified) ?></td>
                 <td><?php echo $catGrupo->acciones?></td>

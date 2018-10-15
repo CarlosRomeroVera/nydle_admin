@@ -13,7 +13,7 @@
           <thead>
               <tr>
                                   <th><?php echo ('id') ?></th>
-                                    <th><?php echo ('proyeto_id') ?></th>
+                                    <th><?php echo ('proyecto_id') ?></th>
                                     <th><?php echo ('usuario_cpanel') ?></th>
                                     <th><?php echo ('contrasenia_cpanel') ?></th>
                                     <th><?php echo ('activo') ?></th>
@@ -23,16 +23,16 @@
               </tr>
           </thead>
           <tbody>
-              <?php foreach ($proyectoCpanel as $proyectoCpanel): ?>
+              <?php foreach ($proyectoCpanel as $proyectopanel): ?>
               <tr>
-                                  <td><?php echo h($proyectoCpanel->id) ?></td>
-                    <td><?php echo h($proyectoCpanel->proyeto_id) ?></td>
-                    <td><?php echo h($proyectoCpanel->usuario_cpanel) ?></td>
-                    <td><?php echo h($proyectoCpanel->contrasenia_cpanel) ?></td>
-                    <td><?php echo $proyectoCpanel->activo ? '<span class="label label-success">SI</span>':'<span class="label label-danger">NO</span>'; ?></td>
-                    <td><?php echo h($proyectoCpanel->created) ?></td>
-                    <td><?php echo h($proyectoCpanel->modified) ?></td>
-                <td><?php echo $proyectoCpanel->acciones?></td>
+                                  <td><?php echo h($proyectopanel->id) ?></td>
+                    <td><?php echo h($proyectopanel->proyeto_id) ?></td>
+                    <td><?php echo h($proyectopanel->usuario_cpanel) ?></td>
+                    <td><?php echo h($proyectopanel->contrasenia_cpanel) ?></td>
+                    <td><?php echo $proyectopanel->activo ? '<span class="badge badge-success">SI</span>':'<span class="badge badge-danger">NO</span>'; ?></td>
+                    <td><?php echo h($proyectopanel->created) ?></td>
+                    <td><?php echo h($proyectopanel->modified) ?></td>
+                <td><?php echo $proyectopanel->acciones?></td>
               </tr>
               <?php endforeach; ?>
           </tbody>

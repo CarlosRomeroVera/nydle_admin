@@ -74,7 +74,7 @@ if (!empty($indexColumns)) {
                   }
                   elseif(in_array($schema->getColumnType($field), ['boolean'])){
   %>
-                  <td><?php echo $<%= $singularVar %>-><%= $field %> ? '<span class="label label-success">SI</span>':'<span class="label label-danger">NO</span>'; ?></td>
+                  <td><?php echo $<%= $singularVar %>-><%= $field %> ? '<span class="badge badge-success">SI</span>':'<span class="badge badge-danger">NO</span>'; ?></td>
   <%
                   }
                   else {

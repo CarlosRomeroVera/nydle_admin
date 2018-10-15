@@ -38,11 +38,11 @@
                                                         <dt class="offset-2 col-sm-4"><?= __('Orden') ?></dt>
         <dd class="col-sm-4"><?= $this->Number->format($menu->orden) ?></dd>
                                         <dt class="offset-2 col-sm-4"><?= __('Created') ?></dt>
-        <dd class="col-sm-4"><?= h($menu->created) ?__($menu->created->format('d-m-Y h:i:s')) : __('<span class="label label-danger">SIN ACCESO</span>');  ?></dd>
+        <dd class="col-sm-4"><?= h($menu->created) ?__($menu->created->format('d-m-Y h:i:s')) : __('<span class="badge badge-danger">SIN ACCESO</span>');  ?></dd>
                 <dt class="offset-2 col-sm-4"><?= __('Modified') ?></dt>
-        <dd class="col-sm-4"><?= h($menu->modified) ?__($menu->modified->format('d-m-Y h:i:s')) : __('<span class="label label-danger">SIN ACCESO</span>');  ?></dd>
+        <dd class="col-sm-4"><?= h($menu->modified) ?__($menu->modified->format('d-m-Y h:i:s')) : __('<span class="badge badge-danger">SIN ACCESO</span>');  ?></dd>
                                         <dt class="offset-2 col-sm-4"><?= __('Activo') ?></dt>
-        <dd class="col-sm-4"><?= $menu->activo ? __('<span class="label label-success">SI</span>') : __('<span class="label label-danger">NO</span>'); ?></dd>
+        <dd class="col-sm-4"><?= $menu->activo ? __('<span class="badge badge-success">SI</span>') : __('<span class="badge badge-danger">NO</span>'); ?></dd>
                       </dl>
           </div>
   </div>

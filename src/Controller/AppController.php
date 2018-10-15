@@ -72,8 +72,44 @@ class AppController extends Controller
     }
 
     public function isAuthorized(){
-      return true;
+      return $this->__permitted($this->name,$this->request->getParam('action'));
     }
+
+    public function __permitted($controller,$action){
+          $this->loadModel('CatPermisos');
+          //Convertimos a minisculas tanto el nombre del controlador como la accion llamada
+          $controllerName = $controller;
+          $actionName = $action;
+          $default = ['Inicio:*','Users:logout','Users:login','Users:cambiarPassword'];
+          $permisosAuxiliares = $this->CatPermisos
+                              ->find('all',[
+                                            'conditions'=>['CatPermisos.id IN (SELECT id_cat_permiso FROM r_permisos_grupos WHERE id_cat_grupo = '."'".$this->request->getSession()->read('Auth.User.grupo_id')."'".' and activo = 1)'],
+                                                'fields'=>[
+                                                          'CatPermisos.nombre',
+                                                          'CatPermisos.controlador',
+                                                          'CatPermisos.accion'
+                                                          ]
+                                          ]);
+        $permisos=[];
+        foreach ($permisosAuxiliares as $key => $permAux){
+          $permiso_tmp = $permAux->controlador.":".$permAux->accion;
+          array_push($permisos,$permiso_tmp);
+        }
+          $permisos = array_merge($default,$permisos);          
+          foreach ($permisos as $key => $permisoAEvaluar){
+            if ($permisoAEvaluar == '*:*' or $this->request->getSession()->read('Auth.User.grupo') == 'NYDLE') {
+              return true;
+            }
+            if ($permisoAEvaluar == $controllerName.':*') {
+              return true;
+            }
+            if ($permisoAEvaluar == $controllerName.':'.$actionName) {
+              return true;
+            }
+          }
+          return false;
+        }
+
         public function beforeFilter(Event $event)
             {
               if (!$this->Auth->user()){

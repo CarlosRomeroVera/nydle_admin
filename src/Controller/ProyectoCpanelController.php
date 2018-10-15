@@ -35,13 +35,13 @@ class ProyectoCpanelController extends AppController
       $Html = $View->loadHelper('Html');
       $Form = $View->loadHelper('Form');
                   $proyectoCpanel = $this->ProyectoCpanel->find('all',['contain' => ['Proyectos']]);
-            foreach($proyectoCpanel as $proyectoCpanel)
+            foreach($proyectoCpanel as $proyectopanel)
       {
-            $proyectoCpanel['acciones'] =  "<div class='btn-group'>";
-            $proyectoCpanel['acciones'] .= $Html->link("<i class='far fa-eye'></i>",array('action'=>'view',$proyectoCpanel->id),array('escape'=>false,'class'=>"btn btn-outline-dark"));
-            $proyectoCpanel['acciones'] .= $Html->link("<i class='fas fa-edit'></i>",array('action'=>'edit',$proyectoCpanel->id),array('escape'=>false,'class'=>"btn btn-outline-dark"));
-            $proyectoCpanel['acciones'] .= $Form->postLink("<i class='fas fa-trash'></i>", ['action' => 'delete',$proyectoCpanel->id], ['escape'=>false,'class'=>"btn btn-outline-danger",'confirm' => __('Realmente desea eliminar el registro con el Id # {0}?', $proyectoCpanel->id)]);
-            $proyectoCpanel['acciones'] .="</div>";
+            $proyectopanel['acciones'] =  "<div class='btn-group'>";
+            $proyectopanel['acciones'] .= $Html->link("<i class='far fa-eye'></i>",array('action'=>'view',$proyectopanel->id),array('escape'=>false,'class'=>"btn btn-outline-dark"));
+            $proyectopanel['acciones'] .= $Html->link("<i class='fas fa-edit'></i>",array('action'=>'edit',$proyectopanel->id),array('escape'=>false,'class'=>"btn btn-outline-dark"));
+            $proyectopanel['acciones'] .= $Form->postLink("<i class='fas fa-trash'></i>", ['action' => 'delete',$proyectopanel->id], ['escape'=>false,'class'=>"btn btn-outline-danger",'confirm' => __('Realmente desea eliminar el registro con el Id # {0}?', $proyectopanel->id)]);
+            $proyectopanel['acciones'] .="</div>";
 
       }
         $this->set(compact('proyectoCpanel'));

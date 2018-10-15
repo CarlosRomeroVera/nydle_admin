@@ -30,10 +30,10 @@
                                   <td><?php echo h($proyecto->id) ?></td>
                     <td><?php echo h($proyecto->name) ?></td>
                     <td><?php echo $proyecto->has('cliente') ? $this->Html->link($proyecto->cliente->name, ['controller' => 'Clientes', 'action' => 'view', $proyecto->cliente->id]) : '' ?></td>
-                                              <td><?php echo h($proyecto->fecha_inicio) ?></td>
-                    <td><?php echo h($proyecto->fecha_vencimiento) ?></td>
-                    <td><?php echo $proyecto->activo ? '<span class="label label-success">SI</span>':'<span class="label label-danger">NO</span>'; ?></td>
-                    <td><?php echo $proyecto->renovado ? '<span class="label label-success">SI</span>':'<span class="label label-danger">NO</span>'; ?></td>
+                    <td><?php echo $proyecto->fecha_inicio ? h(date('Y-m-d',strtotime($proyecto->fecha_inicio))): '<span class="badge badge-danger">N/A</span>'?></td>
+                    <td><?php echo $proyecto->fecha_vencimiento ? h(date('Y-m-d',strtotime($proyecto->fecha_vencimiento))): '<span class="badge badge-danger">N/A</span>'?></td>
+                    <td><?php echo $proyecto->activo ? '<span class="badge badge-success">SI</span>':'<span class="badge badge-danger">NO</span>'; ?></td>
+                    <td><?php echo $proyecto->renovado ? '<span class="badge badge-success">SI</span>':'<span class="badge badge-danger">NO</span>'; ?></td>
                     <td><?php echo h($proyecto->created) ?></td>
                     <td><?php echo h($proyecto->modified) ?></td>
                 <td><?php echo $proyecto->acciones?></td>

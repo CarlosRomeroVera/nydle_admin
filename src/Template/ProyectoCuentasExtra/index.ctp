@@ -31,7 +31,7 @@
                                               <td><?php echo h($proyectoCuentasExtra->name) ?></td>
                     <td><?php echo h($proyectoCuentasExtra->usuario) ?></td>
                     <td><?php echo h($proyectoCuentasExtra->contrasenia) ?></td>
-                    <td><?php echo $proyectoCuentasExtra->activo ? '<span class="label label-success">SI</span>':'<span class="label label-danger">NO</span>'; ?></td>
+                    <td><?php echo $proyectoCuentasExtra->activo ? '<span class="badge badge-success">SI</span>':'<span class="badge badge-danger">NO</span>'; ?></td>
                     <td><?php echo h($proyectoCuentasExtra->created) ?></td>
                     <td><?php echo h($proyectoCuentasExtra->modified) ?></td>
                 <td><?php echo $proyectoCuentasExtra->acciones?></td>

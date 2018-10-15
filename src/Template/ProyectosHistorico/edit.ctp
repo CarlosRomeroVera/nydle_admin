@@ -43,13 +43,13 @@ $this->loadHelper('Form', ['templates' => 'app_form']);
           </header>
 
     			<?php echo  $this->Form->create($proyectosHistorico,['role'=>'form','onsubmit'=>'return checkSubmit();','class'=>'form-horizontal']) ?>
-    			<fieldset>    			    
+    			<fieldset>
     	                		<?php echo $this->Form->control('proyecto_original_id', ['empty'=>true,'options' => $proyectos,'label'=>['']]);?>
     	                		<?php echo $this->Form->control('name', ['label'=>[]]); ?>
     	                		<?php echo $this->Form->control('observaciones', ['label'=>[]]); ?>
     	                		<?php echo $this->Form->control('cliente_id', ['options' => $clientes, 'empty' => true,'label'=>['']]); ?>
-    	                		<?php echo $this->Form->control('fecha_inicio', ['empty' => true,'label'=>['']]); ?>
-    	                		<?php echo $this->Form->control('fecha_vencimiento', ['empty' => true,'label'=>['']]); ?>
+                          <?php echo $this->Form->control('fecha_inicio', ['empty' => true,'label'=>[],'type'=>'text']); ?>
+                          <?php echo $this->Form->control('fecha_vencimiento', ['empty' => true,'label'=>[''],'type'=>'text']); ?>
     	    			</fieldset>
           <div class="form-group">
             <div class="offset-2 col-sm-10 mt-3">
@@ -75,4 +75,14 @@ $this->loadHelper('Form', ['templates' => 'app_form']);
 		  }
 	  );
 	});
+  $('#fecha_inicio').datetimepicker({
+    locale:'es',
+    format: 'Y-MM-DD',
+    minDate:'2018-01-01'
+  });
+  $('#fecha_vencimiento').datetimepicker({
+    locale:'es',
+    format: 'Y-MM-DD',
+    minDate:'2018-01-01'
+  });
 </script>

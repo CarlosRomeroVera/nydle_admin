@@ -43,8 +43,8 @@ $this->loadHelper('Form', ['templates' => 'app_form']);
           </header>
 
     			<?php echo  $this->Form->create($proyectoCpanel,['role'=>'form','onsubmit'=>'return checkSubmit();','class'=>'form-horizontal']) ?>
-    			<fieldset>    			    
-    	                		<?php echo $this->Form->control('proyeto_id', ['label'=>[]]); ?>
+    			<fieldset>
+                          <?php echo $this->Form->control('proyeto_id', ['options' => $proyectos,'label'=>['text'=>'Proyecto']]); ?>
     	                		<?php echo $this->Form->control('usuario_cpanel', ['label'=>[]]); ?>
     	                		<?php echo $this->Form->control('contrasenia_cpanel', ['label'=>[]]); ?>
     	                		<?php echo $this->Form->control('activo', ['label'=>[]]); ?>

@@ -27,7 +27,7 @@
                                   <td><?php echo h($proyectoUsersAsignado->id) ?></td>
                     <td><?php echo $proyectoUsersAsignado->has('proyecto') ? $this->Html->link($proyectoUsersAsignado->proyecto->name, ['controller' => 'Proyectos', 'action' => 'view', $proyectoUsersAsignado->proyecto->id]) : '' ?></td>
                                               <td><?php echo $proyectoUsersAsignado->has('user') ? $this->Html->link($proyectoUsersAsignado->user->name, ['controller' => 'Users', 'action' => 'view', $proyectoUsersAsignado->user->id]) : '' ?></td>
-                                              <td><?php echo $proyectoUsersAsignado->activo ? '<span class="label label-success">SI</span>':'<span class="label label-danger">NO</span>'; ?></td>
+                                              <td><?php echo $proyectoUsersAsignado->activo ? '<span class="badge badge-success">SI</span>':'<span class="badge badge-danger">NO</span>'; ?></td>
                     <td><?php echo h($proyectoUsersAsignado->created) ?></td>
                     <td><?php echo h($proyectoUsersAsignado->modified) ?></td>
                 <td><?php echo $proyectoUsersAsignado->acciones?></td>

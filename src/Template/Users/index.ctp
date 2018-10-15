@@ -13,9 +13,8 @@
           <thead>
               <tr>
                                   <th><?php echo ('id') ?></th>
-                                    <th><?php echo ('nombre') ?></th>
-                                    <th><?php echo ('paterno') ?></th>
-                                    <th><?php echo ('materno') ?></th>
+                                    <th><?php echo ('nombres') ?></th>
+                                    <th><?php echo ('apellidos') ?></th>
                                     <th><?php echo ('username') ?></th>
                                     <th><?php echo ('password') ?></th>
                                     <th><?php echo ('grupo_id') ?></th>
@@ -32,16 +31,15 @@
               <?php foreach ($users as $user): ?>
               <tr>
                                   <td><?php echo h($user->id) ?></td>
-                    <td><?php echo h($user->nombre) ?></td>
-                    <td><?php echo h($user->paterno) ?></td>
-                    <td><?php echo h($user->materno) ?></td>
+                    <td><?php echo h($user->nombres) ?></td>
+                    <td><?php echo h($user->apellidos) ?></td>
                     <td><?php echo h($user->username) ?></td>
                     <td><?php echo h($user->password) ?></td>
                     <td><?php echo h($user->grupo_id) ?></td>
                     <td><?php echo h($user->ultimo_acceso) ?></td>
                     <td><?php echo h($user->correo) ?></td>
                     <td><?php echo h($user->telefono) ?></td>
-                    <td><?php echo $user->activo ? '<span class="label label-success">SI</span>':'<span class="label label-danger">NO</span>'; ?></td>
+                    <td><?php echo $user->activo ? '<span class="badge badge-success">SI</span>':'<span class="badge badge-danger">NO</span>'; ?></td>
                     <td><?php echo h($user->created) ?></td>
                     <td><?php echo h($user->modified) ?></td>
                 <td><?php echo $user->acciones?></td>

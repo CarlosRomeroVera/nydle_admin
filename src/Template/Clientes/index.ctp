@@ -29,7 +29,7 @@
                     <td><?php echo h($cliente->name) ?></td>
                     <td><?php echo h($cliente->empresa) ?></td>
                     <td><?php echo h($cliente->numero) ?></td>
-                    <td><?php echo $cliente->activo ? '<span class="label label-success">SI</span>':'<span class="label label-danger">NO</span>'; ?></td>
+                    <td><?php echo $cliente->activo ? '<span class="badge badge-success">SI</span>':'<span class="badge badge-danger">NO</span>'; ?></td>
                     <td><?php echo h($cliente->created) ?></td>
                     <td><?php echo h($cliente->modified) ?></td>
                 <td><?php echo $cliente->acciones?></td>

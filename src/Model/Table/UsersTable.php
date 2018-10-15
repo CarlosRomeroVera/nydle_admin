@@ -37,7 +37,7 @@ class UsersTable extends Table
         parent::initialize($config);
 
         $this->setTable('users');
-        $this->setDisplayField('name');
+        $this->setDisplayField('username');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
@@ -66,22 +66,17 @@ class UsersTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('nombre')
-            ->maxLength('nombre', 200)
-            ->requirePresence('nombre', 'create')
-            ->notEmpty('nombre');
+            ->scalar('nombres')
+            ->maxLength('nombres', 200)
+            ->requirePresence('nombres', 'create')
+            ->notEmpty('nombres');
 
         $validator
-            ->scalar('paterno')
-            ->maxLength('paterno', 200)
-            ->requirePresence('paterno', 'create')
-            ->notEmpty('paterno');
-
-        $validator
-            ->scalar('materno')
-            ->maxLength('materno', 200)
-            ->requirePresence('materno', 'create')
-            ->notEmpty('materno');
+            ->scalar('apellidos')
+            ->maxLength('apellidos', 200)
+            ->requirePresence('apellidos', 'create')
+            ->notEmpty('apellidos');
+        
 
         $validator
             ->scalar('username')

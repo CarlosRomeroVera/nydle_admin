@@ -30,7 +30,7 @@
                                 <dt class="offset-2 col-sm-4"><?= __('Id Cat Permiso') ?></dt>
         <dd class="col-sm-4"><?= h($rPermisosGrupo->id_cat_permiso) ?></dd>
                                                                         <dt class="offset-2 col-sm-4"><?= __('Activo') ?></dt>
-        <dd class="col-sm-4"><?= $rPermisosGrupo->activo ? __('<span class="label label-success">SI</span>') : __('<span class="label label-danger">NO</span>'); ?></dd>
+        <dd class="col-sm-4"><?= $rPermisosGrupo->activo ? __('<span class="badge badge-success">SI</span>') : __('<span class="badge badge-danger">NO</span>'); ?></dd>
                       </dl>
           </div>
   </div>

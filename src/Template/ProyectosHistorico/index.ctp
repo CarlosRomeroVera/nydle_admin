@@ -24,17 +24,17 @@
               </tr>
           </thead>
           <tbody>
-              <?php foreach ($proyectosHistorico as $proyectosHistorico): ?>
+              <?php foreach ($proyectosHistorico as $proyectoHistorico): ?>                
               <tr>
-                                  <td><?php echo h($proyectosHistorico->id) ?></td>
-                    <td><?php echo $proyectosHistorico->has('proyecto') ? $this->Html->link($proyectosHistorico->proyecto->name, ['controller' => 'Proyectos', 'action' => 'view', $proyectosHistorico->proyecto->id]) : '' ?></td>
-                                              <td><?php echo h($proyectosHistorico->name) ?></td>
-                    <td><?php echo $proyectosHistorico->has('cliente') ? $this->Html->link($proyectosHistorico->cliente->name, ['controller' => 'Clientes', 'action' => 'view', $proyectosHistorico->cliente->id]) : '' ?></td>
-                                              <td><?php echo h($proyectosHistorico->fecha_inicio) ?></td>
-                    <td><?php echo h($proyectosHistorico->fecha_vencimiento) ?></td>
-                    <td><?php echo h($proyectosHistorico->created) ?></td>
-                    <td><?php echo h($proyectosHistorico->modified) ?></td>
-                <td><?php echo $proyectosHistorico->acciones?></td>
+                                  <td><?php echo h($proyectoHistorico->id) ?></td>
+                    <td><?php echo $proyectoHistorico->has('proyecto') ? $this->Html->link($proyectoHistorico->proyecto->name, ['controller' => 'Proyectos', 'action' => 'view', $proyectoHistorico->proyecto->id]) : '' ?></td>
+                                              <td><?php echo h($proyectoHistorico->name) ?></td>
+                    <td><?php echo $proyectoHistorico->has('cliente') ? $this->Html->link($proyectoHistorico->cliente->name, ['controller' => 'Clientes', 'action' => 'view', $proyectoHistorico->cliente->id]) : '' ?></td>
+                                              <td><?php echo h($proyectoHistorico->fecha_inicio) ?></td>
+                    <td><?php echo h($proyectoHistorico->fecha_vencimiento) ?></td>
+                    <td><?php echo h($proyectoHistorico->created) ?></td>
+                    <td><?php echo h($proyectoHistorico->modified) ?></td>
+                <td><?php echo $proyectoHistorico->acciones?></td>
               </tr>
               <?php endforeach; ?>
           </tbody>

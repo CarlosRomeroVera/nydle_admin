@@ -25,7 +25,7 @@
                                   <td><?php echo h($rPermisosGrupo->id) ?></td>
                     <td><?php echo h($rPermisosGrupo->id_cat_grupo) ?></td>
                     <td><?php echo h($rPermisosGrupo->id_cat_permiso) ?></td>
-                    <td><?php echo $rPermisosGrupo->activo ? '<span class="label label-success">SI</span>':'<span class="label label-danger">NO</span>'; ?></td>
+                    <td><?php echo $rPermisosGrupo->activo ? '<span class="badge badge-success">SI</span>':'<span class="badge badge-danger">NO</span>'; ?></td>
                 <td><?php echo $rPermisosGrupo->acciones?></td>
               </tr>
               <?php endforeach; ?>

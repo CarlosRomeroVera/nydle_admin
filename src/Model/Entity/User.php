@@ -3,14 +3,14 @@ namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
 use Cake\Auth\DefaultPasswordHasher;
+use Cake\ORM\TableRegistry;
 
 /**
  * User Entity
  *
  * @property string $id
- * @property string $nombre
- * @property string $paterno
- * @property string $materno
+ * @property string $nombres
+ * @property string $apellidos
  * @property string $username
  * @property string $password
  * @property string $grupo_id
@@ -36,9 +36,8 @@ class User extends Entity
      * @var array
      */
     protected $_accessible = [
-        'nombre' => true,
-        'paterno' => true,
-        'materno' => true,
+        'nombres' => true,
+        'apellidos' => true,
         'username' => true,
         'password' => true,
         'grupo_id' => true,
@@ -56,7 +55,7 @@ class User extends Entity
      *
      * @var array
      */
-    protected $_virtual = ['nombre_completo'];
+    protected $_virtual = ['nombre_completo','grupo'];
     protected $_hidden = [
         'password'
     ];
@@ -71,7 +70,20 @@ class User extends Entity
 
    protected function _getNombreCompleto()
    {
-       $nombre_completo =$this->_properties['nombre']." ".$this->_properties['paterno']." ".$this->_properties['materno'];
-       return $nombre_completo;     
+     if (isset($this->_properties['nombre'])) {
+       $nombre_completo =$this->_properties['nombres']." ".$this->_properties['apellidos'];
+       return $nombre_completo;
+     }
+   }
+   protected function _getGrupo()
+   {
+     if (isset($this->_properties['grupo_id'])){
+       $grupo = TableRegistry::get('CatGrupos')->find()->where(['id'=>$this->_properties['grupo_id']])->first();
+       $grupo_nombre = NULL;
+       if ($grupo) {
+         $grupo_nombre = $grupo->nombre;
+       }
+       return $grupo_nombre;
+     }
    }
 }

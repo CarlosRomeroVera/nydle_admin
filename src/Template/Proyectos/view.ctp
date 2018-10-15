@@ -30,17 +30,17 @@
                                 <dt class="offset-2 col-sm-4"><?= __('Cliente') ?></dt>
         <dd class="col-sm-4"><?= $proyecto->has('cliente') ? $this->Html->link($proyecto->cliente->name, ['controller' => 'Clientes', 'action' => 'view', $proyecto->cliente->id]) : '' ?></dd>
                                                                 <dt class="offset-2 col-sm-4"><?= __('Fecha Inicio') ?></dt>
-        <dd class="col-sm-4"><?= h($proyecto->fecha_inicio) ?__($proyecto->fecha_inicio->format('d-m-Y h:i:s')) : __('<span class="label label-danger">SIN ACCESO</span>');  ?></dd>
+        <dd class="col-sm-4"><?= h($proyecto->fecha_inicio) ?__($proyecto->fecha_inicio->format('d-m-Y h:i:s')) : __('<span class="badge badge-danger">SIN ACCESO</span>');  ?></dd>
                 <dt class="offset-2 col-sm-4"><?= __('Fecha Vencimiento') ?></dt>
-        <dd class="col-sm-4"><?= h($proyecto->fecha_vencimiento) ?__($proyecto->fecha_vencimiento->format('d-m-Y h:i:s')) : __('<span class="label label-danger">SIN ACCESO</span>');  ?></dd>
+        <dd class="col-sm-4"><?= h($proyecto->fecha_vencimiento) ?__($proyecto->fecha_vencimiento->format('d-m-Y h:i:s')) : __('<span class="badge badge-danger">SIN ACCESO</span>');  ?></dd>
                 <dt class="offset-2 col-sm-4"><?= __('Created') ?></dt>
-        <dd class="col-sm-4"><?= h($proyecto->created) ?__($proyecto->created->format('d-m-Y h:i:s')) : __('<span class="label label-danger">SIN ACCESO</span>');  ?></dd>
+        <dd class="col-sm-4"><?= h($proyecto->created) ?__($proyecto->created->format('d-m-Y h:i:s')) : __('<span class="badge badge-danger">SIN ACCESO</span>');  ?></dd>
                 <dt class="offset-2 col-sm-4"><?= __('Modified') ?></dt>
-        <dd class="col-sm-4"><?= h($proyecto->modified) ?__($proyecto->modified->format('d-m-Y h:i:s')) : __('<span class="label label-danger">SIN ACCESO</span>');  ?></dd>
+        <dd class="col-sm-4"><?= h($proyecto->modified) ?__($proyecto->modified->format('d-m-Y h:i:s')) : __('<span class="badge badge-danger">SIN ACCESO</span>');  ?></dd>
                                         <dt class="offset-2 col-sm-4"><?= __('Activo') ?></dt>
-        <dd class="col-sm-4"><?= $proyecto->activo ? __('<span class="label label-success">SI</span>') : __('<span class="label label-danger">NO</span>'); ?></dd>
+        <dd class="col-sm-4"><?= $proyecto->activo ? __('<span class="badge badge-success">SI</span>') : __('<span class="badge badge-danger">NO</span>'); ?></dd>
                 <dt class="offset-2 col-sm-4"><?= __('Renovado') ?></dt>
-        <dd class="col-sm-4"><?= $proyecto->renovado ? __('<span class="label label-success">SI</span>') : __('<span class="label label-danger">NO</span>'); ?></dd>
+        <dd class="col-sm-4"><?= $proyecto->renovado ? __('<span class="badge badge-success">SI</span>') : __('<span class="badge badge-danger">NO</span>'); ?></dd>
                       </dl>
                   <div class="row">
         <h4><?= __('Observaciones') ?></h4>

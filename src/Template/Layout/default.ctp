@@ -39,6 +39,7 @@ $cakeDescription = 'nydle code';
                                         'auxiliares/DataTables/buttons.dataTables.min.css',
                                         'auxiliares/DataTables/extensions/dataTables.colVis.css?1423553990',
                                         'auxiliares/DataTables/extensions/dataTables.tableTools.css?1423553990',
+                                        'auxiliares/boostrap-datetimepicker/bootstrap-datetimepicker.css',
                                     )
                             );?>
     <?php
@@ -67,7 +68,10 @@ $cakeDescription = 'nydle code';
                                               'auxiliares/DataTables/extensions/ColVis/js/dataTables.colVis.min.js',
                                               'auxiliares/DataTables/extensions/TableTools/js/dataTables.tableTools.min.js',
                                               'auxiliares/DataTables/jquery.highlight',
-                                              'auxiliares/sweetalert.min.js'
+                                              'auxiliares/sweetalert.min.js',
+                                              'auxiliares/boostrap-datetimepicker/moment.js',
+                                              'auxiliares/boostrap-datetimepicker/bootstrap-datetimepicker.js',
+                                              'auxiliares/boostrap-datetimepicker/locales/es.js',
                                           )
                                   );
           ?>
@@ -259,7 +263,10 @@ $cakeDescription = 'nydle code';
                                               'auxiliares/DataTables/buttons.print.min.js',
                                               'auxiliares/DataTables/extensions/ColVis/js/dataTables.colVis.min.js',
                                               'auxiliares/DataTables/extensions/TableTools/js/dataTables.tableTools.min.js',
-                                              'auxiliares/DataTables/jquery.highlight'
+                                              'auxiliares/DataTables/jquery.highlight',
+                                              'auxiliares/boostrap-datetimepicker/moment.js',
+                                              'auxiliares/boostrap-datetimepicker/bootstrap-datetimepicker.js',
+                                              'auxiliares/boostrap-datetimepicker/locales/es.js',
                                           )
                                   );
           ?>

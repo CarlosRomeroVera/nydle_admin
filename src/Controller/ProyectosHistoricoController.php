@@ -35,13 +35,13 @@ class ProyectosHistoricoController extends AppController
       $Html = $View->loadHelper('Html');
       $Form = $View->loadHelper('Form');
                   $proyectosHistorico = $this->ProyectosHistorico->find('all',['contain' => ['Proyectos', 'Clientes']]);
-            foreach($proyectosHistorico as $proyectosHistorico)
+            foreach($proyectosHistorico as $proyectoHistorico)
       {
-            $proyectosHistorico['acciones'] =  "<div class='btn-group'>";
-            $proyectosHistorico['acciones'] .= $Html->link("<i class='far fa-eye'></i>",array('action'=>'view',$proyectosHistorico->id),array('escape'=>false,'class'=>"btn btn-outline-dark"));
-            $proyectosHistorico['acciones'] .= $Html->link("<i class='fas fa-edit'></i>",array('action'=>'edit',$proyectosHistorico->id),array('escape'=>false,'class'=>"btn btn-outline-dark"));
-            $proyectosHistorico['acciones'] .= $Form->postLink("<i class='fas fa-trash'></i>", ['action' => 'delete',$proyectosHistorico->id], ['escape'=>false,'class'=>"btn btn-outline-danger",'confirm' => __('Realmente desea eliminar el registro con el Id # {0}?', $proyectosHistorico->id)]);
-            $proyectosHistorico['acciones'] .="</div>";
+            $proyectoHistorico['acciones'] =  "<div class='btn-group'>";
+            $proyectoHistorico['acciones'] .= $Html->link("<i class='far fa-eye'></i>",array('action'=>'view',$proyectoHistorico->id),array('escape'=>false,'class'=>"btn btn-outline-dark"));
+            $proyectoHistorico['acciones'] .= $Html->link("<i class='fas fa-edit'></i>",array('action'=>'edit',$proyectoHistorico->id),array('escape'=>false,'class'=>"btn btn-outline-dark"));
+            $proyectoHistorico['acciones'] .= $Form->postLink("<i class='fas fa-trash'></i>", ['action' => 'delete',$proyectoHistorico->id], ['escape'=>false,'class'=>"btn btn-outline-danger",'confirm' => __('Realmente desea eliminar el registro con el Id # {0}?', $proyectoHistorico->id)]);
+            $proyectoHistorico['acciones'] .="</div>";
 
       }
         $this->set(compact('proyectosHistorico'));
@@ -74,7 +74,14 @@ class ProyectosHistoricoController extends AppController
     {
         $proyectosHistorico = $this->ProyectosHistorico->newEntity();
         if ($this->request->is('post')) {
-            $proyectosHistorico = $this->ProyectosHistorico->patchEntity($proyectosHistorico, $this->request->getData());
+          $data = $this->request->getData();
+          $data['fecha_inicio'] = date('Y-m-d h:i:s',strtotime($data['fecha_inicio']));
+          if ($data['fecha_vencimiento']) {
+            $data['fecha_vencimiento'] = date('Y-m-d h:i:s',strtotime($data['fecha_vencimiento']));
+          }else{
+            $data['fecha_vencimiento'] = NULL;
+          }
+          $proyectosHistorico = $this->ProyectosHistorico->patchEntity($proyectosHistorico, $data);
             if ($this->ProyectosHistorico->save($proyectosHistorico)) {
                 $this->Flash->success(__('El registro fue guardado satisfactoriamente.'),['params'=>['class'=>'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);
@@ -100,8 +107,17 @@ class ProyectosHistoricoController extends AppController
         $proyectosHistorico = $this->ProyectosHistorico->get($id, [
             'contain' => []
         ]);
+        $proyectosHistorico->fecha_inicio = date('Y-m-d',strtotime($proyectosHistorico->fecha_inicio));
+        $proyectosHistorico->fecha_vencimiento = date('Y-m-d',strtotime($proyectosHistorico->fecha_vencimiento));
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $proyectosHistorico = $this->ProyectosHistorico->patchEntity($proyectosHistorico, $this->request->getData());
+          $data = $this->request->getData();
+          $data['fecha_inicio'] = date('Y-m-d h:i:s',strtotime($data['fecha_inicio']));
+          if ($data['fecha_vencimiento']) {
+            $data['fecha_vencimiento'] = date('Y-m-d h:i:s',strtotime($data['fecha_vencimiento']));
+          }else{
+            $data['fecha_vencimiento'] = NULL;
+          }
+          $proyectosHistorico = $this->ProyectosHistorico->patchEntity($proyectosHistorico, $data);
             if ($this->ProyectosHistorico->save($proyectosHistorico)) {
                 $this->Flash->success(__('El registro se actualizo satisfactoriamente'),['params'=>['class'=>'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);

@@ -31,7 +31,7 @@
                                               <td><?php echo h($proyectoDn->name) ?></td>
                     <td><?php echo h($proyectoDn->ip_servidor) ?></td>
                     <td><?php echo h($proyectoDn->nameserver) ?></td>
-                    <td><?php echo $proyectoDn->activo ? '<span class="label label-success">SI</span>':'<span class="label label-danger">NO</span>'; ?></td>
+                    <td><?php echo $proyectoDn->activo ? '<span class="badge badge-success">SI</span>':'<span class="badge badge-danger">NO</span>'; ?></td>
                     <td><?php echo h($proyectoDn->created) ?></td>
                     <td><?php echo h($proyectoDn->modified) ?></td>
                 <td><?php echo $proyectoDn->acciones?></td>

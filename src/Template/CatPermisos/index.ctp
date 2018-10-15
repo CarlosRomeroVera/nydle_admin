@@ -2,6 +2,7 @@
   <div class="container-fluid">
     <h3 class="no-margin-bottom"><?php echo __('Cat Permisos') ?></h3>
     <div class="text-right" style="margin-bottom: 10px;">
+      <?php echo $this->Html->link(__('<i class="far fa-check-square"></i> Permiso Interactivo'), ['action' => 'interactivo'],['class'=>'btn btn-outline-primary','escape'=>false]) ?>
       <?php echo $this->Html->link(__('Nuevo Registro'), ['action' => 'add'],['class'=>'btn btn-dark','escape'=>false]) ?>
     </div>
   </div>
@@ -29,7 +30,7 @@
                     <td><?php echo h($catPermiso->nombre) ?></td>
                     <td><?php echo h($catPermiso->controlador) ?></td>
                     <td><?php echo h($catPermiso->accion) ?></td>
-                    <td><?php echo $catPermiso->activo ? '<span class="label label-success">SI</span>':'<span class="label label-danger">NO</span>'; ?></td>
+                    <td><?php echo $catPermiso->activo ? '<span class="badge badge-success">SI</span>':'<span class="badge badge-danger">NO</span>'; ?></td>
                     <td><?php echo h($catPermiso->created) ?></td>
                     <td><?php echo h($catPermiso->modified) ?></td>
                 <td><?php echo $catPermiso->acciones?></td>
