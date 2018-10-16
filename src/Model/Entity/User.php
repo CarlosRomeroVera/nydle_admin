@@ -15,7 +15,7 @@ use Cake\ORM\TableRegistry;
  * @property string $password
  * @property string $grupo_id
  * @property \Cake\I18n\FrozenTime $ultimo_acceso
- * @property string $correo
+ * @property string $email
  * @property string $telefono
  * @property bool $activo
  * @property \Cake\I18n\FrozenTime $created
@@ -42,7 +42,7 @@ class User extends Entity
         'password' => true,
         'grupo_id' => true,
         'ultimo_acceso' => true,
-        'correo' => true,
+        'email' => true,
         'telefono' => true,
         'activo' => true,
         'created' => true,
@@ -70,7 +70,7 @@ class User extends Entity
 
    protected function _getNombreCompleto()
    {
-     if (isset($this->_properties['nombre'])) {
+     if (isset($this->_properties['nombres'])) {
        $nombre_completo =$this->_properties['nombres']." ".$this->_properties['apellidos'];
        return $nombre_completo;
      }

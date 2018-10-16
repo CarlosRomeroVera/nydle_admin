@@ -76,7 +76,7 @@ class UsersTable extends Table
             ->maxLength('apellidos', 200)
             ->requirePresence('apellidos', 'create')
             ->notEmpty('apellidos');
-        
+
 
         $validator
             ->scalar('username')
@@ -95,10 +95,10 @@ class UsersTable extends Table
             ->allowEmpty('ultimo_acceso');
 
         $validator
-            ->scalar('correo')
-            ->maxLength('correo', 100)
-            ->requirePresence('correo', 'create')
-            ->notEmpty('correo');
+            ->scalar('email')
+            ->maxLength('email', 100)
+            ->requirePresence('email', 'create')
+            ->notEmpty('email');
 
         $validator
             ->scalar('telefono')

@@ -45,11 +45,11 @@ $this->loadHelper('Form', ['templates' => 'app_form']);
     			<?php echo  $this->Form->create($user,['role'=>'form','onsubmit'=>'return checkSubmit();','class'=>'form-horizontal']) ?>
     			<fieldset>
     	                		<?php echo $this->Form->control('nombres', ['label'=>[]]); ?>
-    	                		<?php echo $this->Form->control('apellidos', ['label'=>[]]); ?>    	                		
+    	                		<?php echo $this->Form->control('apellidos', ['label'=>[]]); ?>
     	                		<?php echo $this->Form->control('username', ['label'=>[]]); ?>
     	                		<?php echo $this->Form->control('password', ['label'=>[]]); ?>
     	                		<?php echo $this->Form->control('grupo_id', ['options' => $catGrupos, 'empty' => true,'label'=>['']]); ?>
-    	                		<?php echo $this->Form->control('correo', ['label'=>[]]); ?>
+    	                		<?php echo $this->Form->control('email', ['label'=>['text'=>'Correo']]); ?>
     	                		<?php echo $this->Form->control('telefono', ['label'=>[]]); ?>
     	                		<?php echo $this->Form->control('activo', ['label'=>[]]); ?>
     	    			</fieldset>

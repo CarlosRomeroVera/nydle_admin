@@ -28,7 +28,7 @@
                                 <dt class="offset-2 col-sm-4"><?= __('Nombres') ?></dt>
         <dd class="col-sm-4"><?= h($user->nombres) ?></dd>
                                 <dt class="offset-2 col-sm-4"><?= __('Apellidos') ?></dt>
-        <dd class="col-sm-4"><?= h($user->apellidos) ?></dd>                                
+        <dd class="col-sm-4"><?= h($user->apellidos) ?></dd>
                                 <dt class="offset-2 col-sm-4"><?= __('Username') ?></dt>
         <dd class="col-sm-4"><?= h($user->username) ?></dd>
                                 <dt class="offset-2 col-sm-4"><?= __('Password') ?></dt>
@@ -36,7 +36,7 @@
                                 <dt class="offset-2 col-sm-4"><?= __('Grupo Id') ?></dt>
         <dd class="col-sm-4"><?= h($user->grupo_id) ?></dd>
                                 <dt class="offset-2 col-sm-4"><?= __('Correo') ?></dt>
-        <dd class="col-sm-4"><?= h($user->correo) ?></dd>
+        <dd class="col-sm-4"><?= h($user->email) ?></dd>
                                 <dt class="offset-2 col-sm-4"><?= __('Telefono') ?></dt>
         <dd class="col-sm-4"><?= h($user->telefono) ?></dd>
                                                                 <dt class="offset-2 col-sm-4"><?= __('Ultimo Acceso') ?></dt>

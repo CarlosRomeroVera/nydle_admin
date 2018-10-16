@@ -37,7 +37,7 @@
                     <td><?php echo h($user->password) ?></td>
                     <td><?php echo h($user->grupo_id) ?></td>
                     <td><?php echo h($user->ultimo_acceso) ?></td>
-                    <td><?php echo h($user->correo) ?></td>
+                    <td><?php echo h($user->email) ?></td>
                     <td><?php echo h($user->telefono) ?></td>
                     <td><?php echo $user->activo ? '<span class="badge badge-success">SI</span>':'<span class="badge badge-danger">NO</span>'; ?></td>
                     <td><?php echo h($user->created) ?></td>

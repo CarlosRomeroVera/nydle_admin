@@ -23,8 +23,8 @@ $cakeDescription = 'nydle code';
     <title>
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
+    </title>    
+    <?php echo $this->Html->meta('icon', 'fav.png', ['type'=>'image/png'])?>
     <?php echo $this->Html->css
                             (
                                 array
@@ -227,7 +227,7 @@ $cakeDescription = 'nydle code';
                   <p>nydle code &copy; 2018</p>
                 </div>
                 <div class="col-sm-6 text-right">
-                  <p>Design by <a href="https://bootstrapious.com/admin-templates" class="external">bootstrapious</a></p>
+                  <!-- <p>Design by <a href="https://bootstrapious.com/admin-templates" class="external">bootstrapious</a></p> -->
                 </div>
               </div>
             </div>
